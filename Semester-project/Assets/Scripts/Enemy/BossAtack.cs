@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class StaticEnemy : MonoBehaviour
+public class BossAtack : MonoBehaviour
 {
-    [SerializeField] public GameObject BossEnemy;
-    [field: SerializeField] public int Damage { get; private set; }
+    [field:SerializeField] public int Damage {  get; private set; }
     public bool CanDamage { get; private set; }
     private SpriteRenderer _spriteRenderer;
 
@@ -20,12 +19,7 @@ public class StaticEnemy : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out BulletScript _))
         {
-            CanDamage = false;
-            _spriteRenderer.color = Color.white;
-        }
-        if (collision.gameObject.TryGetComponent(out BulletScript _) && gameObject == BossEnemy)
-        {
-            Destroy(gameObject);   
+            Destroy(gameObject);
         }
     }
 }

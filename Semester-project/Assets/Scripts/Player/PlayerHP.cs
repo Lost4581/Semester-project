@@ -7,10 +7,10 @@ using TMPro;
 public class PlayerHP : MonoBehaviour
 {
     [SerializeField] private GameObject RestartPanel;
-    [SerializeField] private float startHP;
+    [SerializeField] private int startHP;
     [SerializeField] private LayerMask damageLayerMask;
-    [SerializeField] private TextMeshProUGUI healthText;
-    private float _currHP;
+    [SerializeField] public TextMeshProUGUI healthText;
+    public int _currHP;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerHP : MonoBehaviour
         }
     }
 
-    private void GetDamage(float damage)
+    private void GetDamage(int damage)
     {
         if (_currHP > 0)
         {
